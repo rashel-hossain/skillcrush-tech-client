@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
+    const { providerLogin } = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error));
+    }
+
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -37,7 +53,7 @@ const Login = () => {
                     </div>
                     <span>----------------------or----------------------</span>
                     <div>
-                        <button className="mb-2 btn btn-outline btn-primary w-full"><FcGoogle className='text-2xl m-1'></FcGoogle> Continue Google</button>
+                        <button onClick={handleGoogleSignIn} className="mb-2 btn btn-outline btn-primary w-full"><FcGoogle className='text-2xl m-1'></FcGoogle> Continue Google</button>
                         <button className="btn btn-outline btn-primary w-full"><FaGithub className='text-2xl m-1'></FaGithub> Continue GitHub</button>
                     </div>
                 </div>
