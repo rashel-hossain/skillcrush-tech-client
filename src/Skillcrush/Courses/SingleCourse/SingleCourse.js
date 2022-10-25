@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Home = () => {
-
+const SingleCourse = () => {
     return (
         <div>
 
@@ -9,4 +8,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default SingleCourse;
