@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
+import { FaGithub } from 'react-icons/fa';
 
 const Login = () => {
     return (
@@ -34,11 +36,13 @@ const Login = () => {
                         </div>
                     </div>
                     <span>----------------------or----------------------</span>
-                    <button className="btn btn-outline btn-primary w-full">Continue with Google</button>
-                    <button className="btn btn-outline btn-primary w-full">Continue with GitHub</button>
+                    <div>
+                        <button className="mb-2 btn btn-outline btn-primary w-full"><FcGoogle className='text-2xl m-1'></FcGoogle> Continue Google</button>
+                        <button className="btn btn-outline btn-primary w-full"><FaGithub className='text-2xl m-1'></FaGithub> Continue GitHub</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

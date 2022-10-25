@@ -9,6 +9,7 @@ const Register = () => {
                     <div className="text-center mb-5">
                         <h1 className="text-4xl font-bold">Register now!</h1>
                     </div>
+
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
                             <div className="form-control">
@@ -49,8 +50,10 @@ const Register = () => {
                         </div>
                     </div>
                     <span>----------------------or----------------------</span>
-                    <button className="btn btn-outline btn-primary w-full">Continue with Google</button>
-                    <button className="btn btn-outline btn-primary w-full">Continue with GitHub</button>
+                    <div className="m-2">
+                        <button className="mb-2 btn btn-outline btn-primary w-full">Continue with Google</button>
+                        <button className="btn btn-outline btn-primary w-full">Continue with GitHub</button>
+                    </div>
                 </div>
             </div>
         </div>
