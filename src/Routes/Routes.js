@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import About from "../Skillcrush/About/About";
 import Blog from "../Skillcrush/Blog/Blog";
+import CourseDetails from "../Skillcrush/Courses/CourseDetails/CourseDetails";
 import Courses from "../Skillcrush/Courses/Courses/Courses";
 import SingleCourse from "../Skillcrush/Courses/SingleCourse/SingleCourse";
 import FAQ from "../Skillcrush/FAQ/FAQ";
@@ -27,6 +28,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/course/:id',
                 element: <SingleCourse></SingleCourse>
+            },
+            {
+                path: '/CourseDetails',
+                element: <CourseDetails></CourseDetails>
             },
             {
                 path: '/faq',
