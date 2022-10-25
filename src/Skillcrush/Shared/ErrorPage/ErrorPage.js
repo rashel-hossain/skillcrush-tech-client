@@ -12,7 +12,7 @@ const ErrorPage = () => {
             <div className="error-imgg">
                 <img src="/error404.png" alt="" />
             </div>
-            <div className="error mb-2 text-2xl">
+            <div className="error mb-2 text-2xl text-center">
                 <h3>Ops! An Error Ocurred!</h3>
                 <Link to="/" className='underline'><h5>Back to home page</h5></Link>
             </div>

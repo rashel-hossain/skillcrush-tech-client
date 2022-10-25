@@ -46,6 +46,8 @@ const Header = () => {
                     <li><Link to='/faq'>FAQ</Link></li>
                     <li><Link to='/blog'>Blog</Link></li>
                     <li><Link to='/about'>About</Link></li>
+                    <li><button><input type="checkbox" className="toggle" /></button></li>
+
 
                 </ul>
             </div>
