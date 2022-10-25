@@ -30,7 +30,9 @@ const Header = () => {
                         <li><Link to='/about'>About</Link></li>
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl">Skillcursh Tech</Link>
+
+                <Link to='/' className="btn btn-ghost normal-case text-xl"> <img style={{ height: '50px' }} src="/skillcrush.PNG" alt="" /></Link>
+
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -39,18 +41,26 @@ const Header = () => {
                         <Link to='/courses' className="justify-between">
                             Courses
                         </Link>
-
                     </li>
+
                     <li><Link to='/faq'>FAQ</Link></li>
                     <li><Link to='/blog'>Blog</Link></li>
                     <li><Link to='/about'>About</Link></li>
+
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end px-2">
                 <Link>{user?.displayName}</Link>
+                <Link>
+                    {user?.photoURL ?
+                        <img className='rounded-full ml-3'
+                            style={{ width: '40px' }}
+                            src={user.photoURL} />
+                        : <FaUser></FaUser>
+                    }
+                </Link>
 
-                <Link to='/login' className="btn">Login</Link>
-
+                <Link to='/login' className="btn px-4 m-2">Login</Link>
             </div>
         </div>
     );
