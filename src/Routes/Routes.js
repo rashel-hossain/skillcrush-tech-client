@@ -9,6 +9,7 @@ import GetPremium from "../Skillcrush/GetPremium/GetPremium";
 import Home from "../Skillcrush/Home/Home";
 import Login from "../Skillcrush/Login/Login/Login";
 import Register from "../Skillcrush/Login/Register/Register";
+import ErrorPage from "../Skillcrush/Shared/ErrorPage/ErrorPage";
 
 export const routes = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/getpremium',
                 element: <GetPremium></GetPremium>
+            },
+            {
+                path: '*',
+                element: <ErrorPage></ErrorPage>
             }
         ]
     }

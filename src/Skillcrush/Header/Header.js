@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { FaUser } from 'react-icons/fa';
+
 
 const Header = () => {
     const { user } = useContext(AuthContext);
@@ -45,7 +47,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <span>{user?.displayName}</span>
+                <Link>{user?.displayName}</Link>
 
                 <Link to='/login' className="btn">Login</Link>
 
