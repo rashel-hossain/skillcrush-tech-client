@@ -12,6 +12,7 @@ const Courses = () => {
     return (
         <div>
             <h2>This is Courses: {course.length}</h2>
+
         </div >
     );
 };
