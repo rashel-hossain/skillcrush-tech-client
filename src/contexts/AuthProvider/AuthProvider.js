@@ -14,6 +14,10 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider);
     }
 
+    const providerLoginGtitHub = (provider) => {
+        return signInWithPopup(auth, provider);
+    }
+
     // call outside API using fribase> Manage Users
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -27,7 +31,7 @@ const AuthProvider = ({ children }) => {
 
     }, [])
 
-    const authInfo = { user, providerLogin }
+    const authInfo = { user, providerLogin, providerLoginGtitHub }
 
     return (
         <AuthContext.Provider value={authInfo}>

@@ -1,15 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 
 const Login = () => {
-    const { providerLogin } = useContext(AuthContext);
+    const [user, setUser] = useState();
+    const { providerLogin, providerLoginGtitHub } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
 
+    // handle Google Sign In
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
@@ -18,6 +21,30 @@ const Login = () => {
             })
             .catch(error => console.error(error));
     }
+    //handleGoogleSignOut
+    const handleGoogleSignOut = () => {
+        signOut()
+            .then(() => {
+                setUser({});
+            })
+            .catch(() => {
+                setUser({})
+            })
+    }
+    //       signOut(auth) to L-26
+
+    // handle GitHub Sign In
+    const handleGitHubSignIn = () => {
+        providerLoginGtitHub(gitHubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.error('error: ', error);
+            })
+    }
+
 
 
     return (
@@ -53,8 +80,19 @@ const Login = () => {
                     </div>
                     <span>----------------------or----------------------</span>
                     <div>
-                        <button onClick={handleGoogleSignIn} className="mb-2 btn btn-outline btn-primary w-full"><FcGoogle className='text-2xl m-1'></FcGoogle> Continue Google</button>
-                        <button className="btn btn-outline btn-primary w-full"><FaGithub className='text-2xl m-1'></FaGithub> Continue GitHub</button>
+                        {
+                            user?.uid ?
+                                <button onClick={handleGoogleSignOut} className="mb-2 btn btn-outline btn-primary w-full">Sign Out</button>
+
+                                :
+                                <>
+                                    <button onClick={handleGoogleSignIn} className="mb-2 btn btn-outline btn-primary w-full">
+                                        <FcGoogle className='m-2'></FcGoogle>Continue Google</button>
+                                    <button onClick={handleGitHubSignIn} className="btn btn-outline btn-primary w-full">
+                                        <FaGithub className='m-2'></FaGithub> Continue GitHub</button>
+                                </>
+
+                        }
                     </div>
                 </div>
             </div>
