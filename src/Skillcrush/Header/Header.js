@@ -1,11 +1,18 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import { FaUser } from 'react-icons/fa';
+import { FaUserCircle } from 'react-icons/fa';
 
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        return logOut()
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
+
 
     return (
         <div className="navbar bg-base-100">
@@ -52,17 +59,40 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end px-2">
-                <Link>{user?.displayName}</Link>
-                <Link>
-                    {user?.photoURL ?
-                        <img className='rounded-full ml-3'
-                            style={{ width: '40px' }}
-                            src={user.photoURL} />
-                        : <FaUser></FaUser>
+                <Link className='flex'>
+                    {
+                        user?.uid ?
+                            <>
+                                <div className="navbar">
+                                    <span> {user?.displayName} </span>
+                                    <Link>
+                                        {user?.photoURL ?
+                                            <img className='rounded-full ml-3'
+                                                style={{ width: '40px' }}
+                                                src={user.photoURL} />
+                                            :
+                                            <FaUserCircle></FaUserCircle>
+                                        }
+                                    </Link>
+                                </div>
+
+                                <button onClick={handleLogOut} className="btn px-4 m-2">Log Out</button>
+                            </>
+                            :
+                            <>
+                                <div className="navbar">
+                                    <FaUserCircle className='text-3xl'></FaUserCircle>
+                                    <button className="btn px-4 m-2"> <Link to='/login'>Login</Link></button>
+                                </div>
+
+                            </>
                     }
+
                 </Link>
 
-                <Link to='/login' className="btn px-4 m-2">Login</Link>
+
+
+                {/* <Link to='/login' className="btn px-4 m-2">Login</Link> */}
             </div>
         </div>
     );
