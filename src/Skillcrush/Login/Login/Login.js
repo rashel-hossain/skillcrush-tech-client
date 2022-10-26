@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
@@ -8,10 +8,14 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 
+
 const Login = () => {
     const [user, setUser] = useState();
     const [error, setError] = useState('');
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
 
     const { providerLogin, providerLoginGtitHub, signIn } = useContext(AuthContext);
 
@@ -57,7 +61,7 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 setError('');
-                navigate('/');
+                navigate(from, { replace: true });
 
             })
             .catch(error => {

@@ -11,6 +11,7 @@ import Home from "../Skillcrush/Home/Home";
 import Login from "../Skillcrush/Login/Login/Login";
 import Register from "../Skillcrush/Login/Register/Register";
 import ErrorPage from "../Skillcrush/Shared/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -23,7 +24,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <Courses></Courses>,
+                element: <PrivateRoute><Courses></Courses></PrivateRoute>,
             },
             {
                 path: '/course/:id',

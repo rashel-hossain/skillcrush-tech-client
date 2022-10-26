@@ -54,8 +54,6 @@ const Header = () => {
                     <li><Link to='/blog'>Blog</Link></li>
                     <li><Link to='/about'>About</Link></li>
                     <li><button><input type="checkbox" className="toggle" /></button></li>
-
-
                 </ul>
             </div>
             <div className="navbar-end px-2">
@@ -65,7 +63,7 @@ const Header = () => {
                             <>
                                 <div className="navbar">
                                     <span> {user?.displayName} </span>
-                                    <Link>
+                                    <Link className="tooltip tooltip-bottom" data-tip={user.displayName}>
                                         {user?.photoURL ?
                                             <img className='rounded-full ml-3'
                                                 style={{ width: '40px' }}
