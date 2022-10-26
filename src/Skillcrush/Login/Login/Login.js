@@ -4,13 +4,20 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
     const [user, setUser] = useState();
-    const { providerLogin, providerLoginGtitHub } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+
+    const { providerLogin, providerLoginGtitHub, signIn } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
     const gitHubProvider = new GithubAuthProvider();
+
 
     // handle Google Sign In
     const handleGoogleSignIn = () => {
@@ -21,17 +28,7 @@ const Login = () => {
             })
             .catch(error => console.error(error));
     }
-    //handleGoogleSignOut
-    const handleGoogleSignOut = () => {
-        signOut()
-            .then(() => {
-                setUser({});
-            })
-            .catch(() => {
-                setUser({})
-            })
-    }
-    //       signOut(auth) to L-26
+
 
     // handle GitHub Sign In
     const handleGitHubSignIn = () => {
@@ -45,7 +42,38 @@ const Login = () => {
             })
     }
 
+    // logIn/signIn with eamil and password
+    const handleSignIn = event => {
+        event.preventDefault();
 
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                setError('');
+                navigate('/');
+
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+    }
+
+    // for toast show
+    const toastShow = () => {
+        if (!signIn === false) {
+            toast.success('You have login Successfully!');
+        }
+        else {
+            toast.error("Please enter your email and password")
+        }
+    }
 
     return (
         <div>
@@ -54,35 +82,41 @@ const Login = () => {
                     <div className="text-center mb-5">
                         <h1 className="text-4xl font-bold">Login now!</h1>
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <div className="card-body">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="text" placeholder="email" className="input input-bordered" />
-                            </div>
+                    <form onSubmit={handleSignIn}>
+                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                            <div className="card-body">
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Email</span>
+                                    </label>
+                                    <input name='email' type="text" placeholder="email" className="input input-bordered" required />
+                                </div>
 
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input type="password" placeholder="password" className="input input-bordered" />
-                            </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Password</span>
+                                    </label>
+                                    <input name='password' type="password" placeholder="password" className="input input-bordered" required />
+                                </div>
 
-                            <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <div className="form-control mt-6">
+                                    <button onClick={toastShow} className="btn btn-primary" type='submit'>Login</button>
+                                </div>
+                                <div className="text-red-400">
+                                    {error}
+                                </div>
+                                <p><small>Don't have an account?
+                                    <Link to='/register' className="label-text-alt link link-hover underline"> Register now</Link>
+                                </small></p>
                             </div>
-                            <p><small>Don't have an account?
-                                <Link to='/register' className="label-text-alt link link-hover underline"> Register now</Link>
-                            </small></p>
                         </div>
-                    </div>
+                    </form>
+
                     <span>----------------------or----------------------</span>
                     <div>
                         {
                             user?.uid ?
-                                <button onClick={handleGoogleSignOut} className="mb-2 btn btn-outline btn-primary w-full">Sign Out</button>
+                                <button className="mb-2 btn btn-outline btn-primary w-full">Sign Out</button>
 
                                 :
                                 <>
