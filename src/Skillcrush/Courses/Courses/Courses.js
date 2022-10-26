@@ -28,9 +28,10 @@ const Courses = () => {
                 <h2>This is Courses: {course.length}</h2>
                 <div className='text-2xl'>
                     {
-                        course.map(ch => <p>
-                            {ch.title}
+                        course.map(ch => <p><Link>{ch.title}</Link>
+
                         </p>)
+
                     }
                     <Link to='/course/:id' className='text-warning'>JS And React Development</Link>
                 </div>

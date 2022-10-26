@@ -116,7 +116,7 @@ const Login = () => {
                         </div>
                     </form>
 
-                    <span>----------------------or----------------------</span>
+                    <div className="divider">OR</div>
                     <div>
                         {
                             user?.uid ?

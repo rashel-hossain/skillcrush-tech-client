@@ -24,15 +24,16 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <PrivateRoute><Courses></Courses></PrivateRoute>,
+                element: <Courses></Courses>
             },
             {
                 path: '/course/:id',
                 element: <SingleCourse></SingleCourse>
             },
             {
-                path: '/CourseDetails',
-                element: <CourseDetails></CourseDetails>
+                path: '/courseDetails/:id',
+                element: <CourseDetails></CourseDetails>,
+                loader: ({ params }) => fetch(`https://skillcrush-tech-server.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/faq',
@@ -56,7 +57,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/getpremium',
-                element: <GetPremium></GetPremium>
+                element: <PrivateRoute><GetPremium></GetPremium></PrivateRoute>
             },
             {
                 path: '*',

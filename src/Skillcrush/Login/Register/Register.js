@@ -90,7 +90,8 @@ const Register = () => {
                         </div>
                     </form>
 
-                    <span>----------------------or----------------------</span>
+                    <div className="divider">OR</div>
+
                     <div className="m-2">
                         <button className="mb-2 btn btn-outline btn-primary w-full">Continue with Google</button>
                         <button className="btn btn-outline btn-primary w-full">Continue with GitHub</button>
