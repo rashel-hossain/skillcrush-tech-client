@@ -59,6 +59,7 @@ export const routes = createBrowserRouter([
                 path: '/getpremium',
                 element: <PrivateRoute><GetPremium></GetPremium></PrivateRoute>
             },
+
             {
                 path: '*',
                 element: <ErrorPage></ErrorPage>

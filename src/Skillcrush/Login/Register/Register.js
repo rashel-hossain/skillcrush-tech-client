@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
-
+    const { createUser, updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
+
 
     const handleOnSubmit = event => {
         event.preventDefault();
@@ -16,7 +16,7 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photoURL, email, password);
+        // console.log(name, photoURL, email, password);
 
         createUser(email, password)
             .then(result => {
@@ -24,11 +24,23 @@ const Register = () => {
                 console.log(user);
                 setError();
                 form.reset();
+                handleUpdateUserProfile(name, photoURL);
             })
             .catch(error => {
                 console.error(error);
                 setError(error.message);
             });
+    }
+
+    // update user
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error))
     }
 
 
@@ -40,13 +52,13 @@ const Register = () => {
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col w-1/2">
+                <div className="hero-content flex-col">
                     <div className="text-center mb-5">
                         <h1 className="text-4xl font-bold">Register now!</h1>
                     </div>
 
                     <form onSubmit={handleOnSubmit}>
-                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                        <div style={{ width: '450px' }} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                             <div className="card-body">
                                 <div className="form-control">
                                     <label className="label">
@@ -74,8 +86,8 @@ const Register = () => {
                                         <span className="label-text">Password</span>
                                     </label>
                                     <input name='password' type="password" placeholder="your password" className="input input-bordered" required />
-
                                 </div>
+
                                 <div className="form-control mt-6">
                                     <button onClick={toastShow} className="btn btn-primary" type='submit'>Register</button>
                                 </div>
