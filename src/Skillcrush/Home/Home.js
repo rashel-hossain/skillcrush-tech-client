@@ -7,11 +7,15 @@ const Home = () => {
     return (
         <div>
 
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-purple-500">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <img style={{ width: '700px', height: '500px' }} src="https://timebusinessnews.com/wp-content/uploads/full-stack-web-development.jpg" />
+                    <img style={{ width: '700px', height: '500px' }} src="https://www.siliconinfo.com/assets/img/banner-img-right.png" />
                     <div>
-                        <h1 className="text-5xl font-bold">Welcome To Skillcrush Learning!</h1>
+                        <h1 className="text-5xl font-bold text-white mb-2">Welcome To Skillcrush <br /> Learning Desk!
+                        </h1>
+                        <h1 className='text-4xl font-bold'>
+                            Let the career begin with the confidence of competence.
+                        </h1>
                         <p className="py-6">Provident cupiditate voluptatem et in. <br />Find the right instructor for you. Choose from many topics, skill levels, and languages. Shop thousands of high-quality on-demand online courses. Start learning today. Download To Your Phone. 30-Day Money Guarantee. Expert Instructors. Courses in 60+ Languages. Lifetime Access. Over 204,000 Courses. Courses: Programming, Personal Development, Design, Communication, Excel.</p>
                         <Link to='/courses'><button className="btn btn-primary">Continue course</button></Link>
                     </div>

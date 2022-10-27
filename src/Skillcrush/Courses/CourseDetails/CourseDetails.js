@@ -4,6 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseDetails = () => {
     const course = useLoaderData();
+    const { id } = course;
 
     return (
         <div>
@@ -47,7 +48,7 @@ const CourseDetails = () => {
                         </p>
 
                         <div className="flex items-center">
-                            <Link to='/getpremium'>
+                            <Link to={`/getpremium/${id}`}>
                                 <button className="btn btn-primary btn-block">Get Premium Access</button>
                             </Link>
                         </div>

@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
 
-const toastShow = () => {
 
-    toast.success('Successfully enrolled!');
-}
+const GetPremium = () => {
+    const getpremiums = useLoaderData()
+    console.log(getpremiums);
 
-const GetPremium = ({ id }) => {
+
+    const toastShow = () => {
+        toast.success('Successfully enrolled!');
+    }
+
     const { title, price } = useState()
     return (
         <div>
-            <Link id={id} to={`/courseDetails/${id}`}>
+            <Link>
                 <h2>Welcome To  Premium Access</h2>
                 <div className="hero min-h-screen bg-base-200">
                     <div className="hero-content flex-col">
@@ -20,9 +25,10 @@ const GetPremium = ({ id }) => {
                             <h1 className="text-4xl font-bold">CheckOut</h1>
                         </div>
                         <h2 className="card-title">
-                            {title}
+                            {getpremiums.title}
                         </h2>
-                        <h4 className='text-xl'>Price: {price} TK</h4>
+                        <div className="divider"></div>
+                        <h4 className='text-xl'>Price: {getpremiums.price} TK</h4>
 
                         <button onClick={toastShow} className="btn btn-primary btn-block">Get Confirm</button>
 

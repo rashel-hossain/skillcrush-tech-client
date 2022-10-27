@@ -62,7 +62,7 @@ export const routes = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: '/getpremium',
+                path: '/getpremium/:id',
                 element: <PrivateRoute><GetPremium></GetPremium></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://skillcrush-tech-server.vercel.app/courses/${params.id}`)
 
