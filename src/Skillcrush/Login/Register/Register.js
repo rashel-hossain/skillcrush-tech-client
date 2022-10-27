@@ -10,35 +10,9 @@ import { FaGithub } from 'react-icons/fa';
 const Register = () => {
     const [user, setUser] = useState();
     const [error, setError] = useState('');
-    const { providerLogin, providerLoginGtitHub, createUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
 
-    const googleProvider = new GoogleAuthProvider();
-    const gitHubProvider = new GithubAuthProvider();
-
-
-    // handle Google Sign In
-    const handleGoogleSignIn = () => {
-        providerLogin(googleProvider)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-            })
-            .catch(error => console.error(error));
-    }
-
-
-    // handle GitHub Sign In
-    const handleGitHubSignIn = () => {
-        providerLoginGtitHub(gitHubProvider)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-            })
-            .catch(error => {
-                console.error('error: ', error);
-            })
-    }
 
 
 
@@ -126,28 +100,13 @@ const Register = () => {
                                 <div className="text-red-400">
                                     {error}
                                 </div>
-                                <p><small>Already have an account?
+                                <p>Already have an account?
                                     <Link to='/login' className="label-text-alt link link-hover underline"> Login now</Link>
-                                </small></p>
+                                </p>
                             </div>
                         </div>
                     </form>
 
-                    <div className="divider">OR</div>
-
-                    <div>
-                        {
-                            user?.uid ?
-                                <button className="mb-2 btn btn-outline btn-primary w-full">Sign Out</button>
-                                :
-                                <>
-                                    <button onClick={handleGoogleSignIn} className="mb-2 btn btn-outline btn-primary w-full">
-                                        <FcGoogle className='m-2'></FcGoogle>Continue Google</button>
-                                    <button onClick={handleGitHubSignIn} className="btn btn-outline btn-primary w-full">
-                                        <FaGithub className='m-2'></FaGithub> Continue GitHub</button>
-                                </>
-                        }
-                    </div>
                 </div>
             </div>
         </div>

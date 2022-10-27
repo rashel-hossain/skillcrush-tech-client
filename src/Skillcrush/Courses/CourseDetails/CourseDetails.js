@@ -33,7 +33,7 @@ const CourseDetails = () => {
 
                         <div className='flex'>
                             <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-                                <div className="badge badge-secondary">Premium course</div>
+                                <div className="badge badge-secondary">Premium</div>
                             </p>
 
                             <Pdf targetRef={ref} filename="code-example.pdf">

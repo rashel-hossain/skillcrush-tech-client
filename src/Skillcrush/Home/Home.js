@@ -23,11 +23,11 @@ const Home = () => {
             </div>
 
 
-
-
-            {/* course category start */}
-
+            {/*  demo category start */}
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+                <div className="text-center mb-5">
+                    <h1 className="text-4xl font-bold">This is Demo Container</h1>
+                </div>
                 <div className="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
                     <div className="overflow-hidden transition-shadow duration-300 bg-white rounded">
                         <a href="/" aria-label="Article">
@@ -39,7 +39,7 @@ const Home = () => {
                         </a>
                         <div className="py-5">
                             <p className="mb-2 text-xs font-semibold text-gray-600 uppercase">
-                                13 Jul 2020
+                                13 Jul 2022
                             </p>
                             <a
                                 href="/"
@@ -83,7 +83,7 @@ const Home = () => {
                                             />
                                         </svg>
                                     </div>
-                                    <p className="font-semibold">7.4K</p>
+                                    <p className="font-semibold">5.4K</p>
                                 </a>
                                 <a
                                     href="/"
@@ -115,7 +115,7 @@ const Home = () => {
                                             />
                                         </svg>
                                     </div>
-                                    <p className="font-semibold">81</p>
+                                    <p className="font-semibold">55</p>
                                 </a>
                             </div>
                         </div>
@@ -130,7 +130,7 @@ const Home = () => {
                         </a>
                         <div className="py-5">
                             <p className="mb-2 text-xs font-semibold text-gray-600 uppercase">
-                                4 Nov 2020
+                                4 Nov 2022
                             </p>
                             <a
                                 href="/"
@@ -174,7 +174,7 @@ const Home = () => {
                                             />
                                         </svg>
                                     </div>
-                                    <p className="font-semibold">7.4K</p>
+                                    <p className="font-semibold">6.7K</p>
                                 </a>
                                 <a
                                     href="/"
@@ -206,7 +206,7 @@ const Home = () => {
                                             />
                                         </svg>
                                     </div>
-                                    <p className="font-semibold">81</p>
+                                    <p className="font-semibold">75</p>
                                 </a>
                             </div>
                         </div>
@@ -221,7 +221,7 @@ const Home = () => {
                         </a>
                         <div className="py-5">
                             <p className="mb-2 text-xs font-semibold text-gray-600 uppercase">
-                                28 Dec 2020
+                                28 Dec 2022
                             </p>
                             <a
                                 href="/"
@@ -267,7 +267,7 @@ const Home = () => {
                                             />
                                         </svg>
                                     </div>
-                                    <p className="font-semibold">7.4K</p>
+                                    <p className="font-semibold">7.6K</p>
                                 </a>
                                 <a
                                     href="/"
@@ -299,7 +299,7 @@ const Home = () => {
                                             />
                                         </svg>
                                     </div>
-                                    <p className="font-semibold">81</p>
+                                    <p className="font-semibold">75</p>
                                 </a>
                             </div>
                         </div>

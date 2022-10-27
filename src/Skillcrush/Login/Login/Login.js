@@ -29,6 +29,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error));
     }
@@ -40,6 +41,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error('error: ', error);
@@ -103,9 +105,9 @@ const Login = () => {
                                 <div className="text-red-400">
                                     {error}
                                 </div>
-                                <p><small>Don't have an account?
+                                <p>Don't have an account?
                                     <Link to='/register' className="label-text-alt link link-hover underline"> Register now</Link>
-                                </small></p>
+                                </p>
                             </div>
                         </div>
                     </form>
