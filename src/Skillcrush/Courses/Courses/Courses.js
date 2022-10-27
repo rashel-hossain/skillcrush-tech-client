@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Category from '../../Category/Category/Category';
 import SingleCourse from '../SingleCourse/SingleCourse';
 
 const Courses = () => {
@@ -14,8 +15,7 @@ const Courses = () => {
     return (
 
         <div className='grid lg:grid-cols-[3fr_1fr]'>
-
-            <div className="grid lg:grid-cols-2 w-4/5 mx-auto rigthSide-Nav">
+            <div className="grid lg:grid-cols-2 mx-auto rigthSide-Nav">
                 {
                     course.map(ch => <SingleCourse
                         key={ch.id}
@@ -24,16 +24,17 @@ const Courses = () => {
                 }
             </div>
 
-            <div className="border-2 border-red-500">
-                <h2>This is Courses: {course.length}</h2>
-                <div className='text-2xl'>
-                    {
-                        course.map(ch => <p><Link>{ch.title}</Link>
+            <div className="border-2 rounded border-red-500 mx-auto mb-4">
+                <h2 className='text-2xl p-2'> Available Courses: {course.length}</h2>
 
-                        </p>)
+                <div className='text-1xl mx-auto '>
+                    {
+                        course.map(ch => <Category
+                            key={ch.id}
+                            ch={ch}
+                        ></Category>)
 
                     }
-                    <Link to='/course/:id' className='text-warning'>JS And React Development</Link>
                 </div>
             </div>
 

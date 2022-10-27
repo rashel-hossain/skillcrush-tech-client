@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import About from "../Skillcrush/About/About";
 import Blog from "../Skillcrush/Blog/Blog";
+import Category from "../Skillcrush/Category/Category/Category";
 import CourseDetails from "../Skillcrush/Courses/CourseDetails/CourseDetails";
 import Courses from "../Skillcrush/Courses/Courses/Courses";
 import SingleCourse from "../Skillcrush/Courses/SingleCourse/SingleCourse";
@@ -31,6 +32,11 @@ export const routes = createBrowserRouter([
                 element: <SingleCourse></SingleCourse>
             },
             {
+                path: '/courseCategory',
+                element: <Category></Category>,
+                loader: ({ params }) => fetch(`https://skillcrush-tech-server.vercel.app/courses/${params.id}`)
+            },
+            {
                 path: '/courseDetails/:id',
                 element: <CourseDetails></CourseDetails>,
                 loader: ({ params }) => fetch(`https://skillcrush-tech-server.vercel.app/courses/${params.id}`)
@@ -57,7 +63,9 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/getpremium',
-                element: <PrivateRoute><GetPremium></GetPremium></PrivateRoute>
+                element: <PrivateRoute><GetPremium></GetPremium></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://skillcrush-tech-server.vercel.app/courses/${params.id}`)
+
             },
 
             {

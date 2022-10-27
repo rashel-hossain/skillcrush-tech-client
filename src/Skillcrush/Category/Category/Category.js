@@ -1,26 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import Home from '../../Home/Home';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaCheckCircle } from 'react-icons/fa';
 
-const Category = () => {
-    // const [categories, setCategories] = useState([]);
-
-    // useEffect(() => {
-    //     fetch('https://skillcrush-tech-server.vercel.app/courses/')
-    //         .then(res => res.json())
-    //         .then(data => setCategories(data));
-    // }, [])
-
+const Category = ({ ch }) => {
+    const { id } = ch;
 
     return (
         <div>
-            <h2>Category</h2>
-            {
-                // categories.map(category => <Home
-                //     key={category.id}
-                //     category={category}
-                // ></Home>
-                // )
-            }
+            <Link id={id} to={`/courseDetails/${id}`}>
+                <p className='flex border-info-2 rounded p-2 bg-red-500 text-white m-2'>
+                    <FaCheckCircle className='items-center mr-2'></FaCheckCircle>{ch.title}
+                </p></Link>
+
         </div>
     );
 };

@@ -1,11 +1,45 @@
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
+import { FcGoogle } from 'react-icons/fc';
+import { FaGithub } from 'react-icons/fa';
+
 const Register = () => {
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const [user, setUser] = useState();
     const [error, setError] = useState('');
+    const { providerLogin, providerLoginGtitHub, createUser, updateUserProfile } = useContext(AuthContext);
+
+
+    const googleProvider = new GoogleAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
+
+
+    // handle Google Sign In
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error));
+    }
+
+
+    // handle GitHub Sign In
+    const handleGitHubSignIn = () => {
+        providerLoginGtitHub(gitHubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.error('error: ', error);
+            })
+    }
+
 
 
     const handleOnSubmit = event => {
@@ -104,9 +138,19 @@ const Register = () => {
 
                     <div className="divider">OR</div>
 
-                    <div className="m-2">
-                        <button className="mb-2 btn btn-outline btn-primary w-full">Continue with Google</button>
-                        <button className="btn btn-outline btn-primary w-full">Continue with GitHub</button>
+                    <div>
+                        {
+                            user?.uid ?
+                                <button className="mb-2 btn btn-outline btn-primary w-full">Sign Out</button>
+
+                                :
+                                <>
+                                    <button onClick={handleGoogleSignIn} className="mb-2 btn btn-outline btn-primary w-full">
+                                        <FcGoogle className='m-2'></FcGoogle>Continue Google</button>
+                                    <button onClick={handleGitHubSignIn} className="btn btn-outline btn-primary w-full">
+                                        <FaGithub className='m-2'></FaGithub> Continue GitHub</button>
+                                </>
+                        }
                     </div>
                 </div>
             </div>

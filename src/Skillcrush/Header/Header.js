@@ -69,7 +69,7 @@ const Header = () => {
                                                 style={{ width: '40px' }}
                                                 src={user.photoURL} />
                                             :
-                                            <FaUserCircle></FaUserCircle>
+                                            <FaUserCircle className='text-3xl'></FaUserCircle>
                                         }
                                     </Link>
                                 </div>
@@ -79,7 +79,7 @@ const Header = () => {
                             :
                             <>
                                 <div className="navbar">
-                                    <FaUserCircle className='text-3xl'></FaUserCircle>
+
                                     <button className="btn px-4 m-2"> <Link to='/login'>Login</Link></button>
                                 </div>
 

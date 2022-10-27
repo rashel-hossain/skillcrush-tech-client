@@ -1,51 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
-const GetPremium = () => {
+
+const toastShow = () => {
+
+    toast.success('Successfully enrolled!');
+}
+
+const GetPremium = ({ id }) => {
+    const { title, price } = useState()
     return (
         <div>
-            <h2>Welcome To  Premium Access</h2>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col">
-                    <div className="text-center mb-5">
-                        <h1 className="text-4xl font-bold">Personal Information</h1>
-                    </div>
-
-                    <form>
-                        <div style={{ width: '450px' }} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                            <div className="card-body">
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">Full Name</span>
-                                    </label>
-                                    <input name='name' type="text" placeholder="your name" className="input input-bordered" />
-                                </div>
-
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">Email Address</span>
-                                    </label>
-                                    <input name='email' type="text" placeholder="your email" className="input input-bordered" required />
-                                </div>
-
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">Phone Number</span>
-                                    </label>
-                                    <input type="text" placeholder="your phone number" className="input input-bordered" required />
-                                </div>
-                                <div className="form-control mt-6">
-                                    <button className="btn btn-primary" type='submit'>Submit To Access</button>
-                                </div>
-
-
-                            </div>
+            <Link id={id} to={`/courseDetails/${id}`}>
+                <h2>Welcome To  Premium Access</h2>
+                <div className="hero min-h-screen bg-base-200">
+                    <div className="hero-content flex-col">
+                        <div className="text-center mb-5">
+                            <h1 className="text-4xl font-bold">CheckOut</h1>
                         </div>
-                    </form>
+                        <h2 className="card-title">
+                            {title}
+                        </h2>
+                        <h4 className='text-xl'>Price: {price} TK</h4>
 
+                        <button onClick={toastShow} className="btn btn-primary btn-block">Get Confirm</button>
 
+                    </div>
                 </div>
-            </div>
-        </div>
+            </Link>
+        </div >
     );
 };
 
