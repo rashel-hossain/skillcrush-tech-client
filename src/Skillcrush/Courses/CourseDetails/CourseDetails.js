@@ -1,15 +1,21 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import Pdf from "react-to-pdf";
+import { FaFilePdf } from 'react-icons/fa';
 
 
 const CourseDetails = () => {
     const course = useLoaderData();
     const { id } = course;
+    const ref = React.createRef();
+
 
     return (
         <div>
-            <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+
+            <div ref={ref} className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                 <div className="flex flex-col max-w-screen-lg overflow-hidden bg-white border rounded shadow-sm lg:flex-row sm:mx-auto">
+
                     <div className="relative lg:w-1/2">
                         <img
                             src={course.image}
@@ -24,11 +30,15 @@ const CourseDetails = () => {
                         </svg>
                     </div>
                     <div className="flex flex-col justify-center p-8 bg-white lg:p-16 lg:pl-10 lg:w-1/2">
-                        <div>
-                            <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
 
+                        <div className='flex'>
+                            <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
                                 <div className="badge badge-secondary">Premium course</div>
                             </p>
+
+                            <Pdf targetRef={ref} filename="code-example.pdf">
+                                {({ toPdf }) => <button className="btn btn-xs bg-primary rounded-full font-semibold px-2" onClick={toPdf}>Generate PDF <FaFilePdf className='rounded bg-red-500 ml-2'></FaFilePdf></button>}
+                            </Pdf>
                         </div>
                         <h5 className="mb-3 text-3xl font-extrabold leading-none sm:text-4xl">
                             {course.title}
@@ -54,6 +64,8 @@ const CourseDetails = () => {
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
         </div>

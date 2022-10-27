@@ -34,7 +34,7 @@ const Blog = () => {
                             <img
                                 style={{ height: '300px' }}
                                 className="object-cover w-full h-64 rounded-t lg:h-80 xl:h-96"
-                                src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+                                src="https://miro.medium.com/max/1400/1*p0nD8ImMzd3lEn00YhjPVg.png"
                                 alt=""
                             />
                             <div className="absolute inset-0 bg-gray-800 bg-opacity-25" />
@@ -46,7 +46,6 @@ const Blog = () => {
                             <p className="mb-5 text-gray-700">
                                 <strong>The Firebase</strong> Realtime Database lets you build rich, collaborative applications by allowing secure access to the database directly from client-side code. Data is persisted locally, and even while offline, realtime events continue to fire, giving the end user a responsive experience.
                             </p>
-
                         </div>
                     </div>
 
