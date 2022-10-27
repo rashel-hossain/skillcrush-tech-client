@@ -62,22 +62,16 @@ const Login = () => {
                 form.reset();
                 setError('');
                 navigate(from, { replace: true });
+                toast.success('You have login Successfully!');
 
             })
             .catch(error => {
                 setError(error.message);
+                toast.error('Please enter your email and password!');
             })
     }
 
-    // for toast show
-    const toastShow = () => {
-        if (!signIn === false) {
-            toast.success('You have login Successfully!');
-        }
-        else {
-            toast.error("Please enter your email and password")
-        }
-    }
+
 
     return (
         <div>
@@ -104,7 +98,7 @@ const Login = () => {
                                 </div>
 
                                 <div className="form-control mt-6">
-                                    <button onClick={toastShow} className="btn btn-primary" type='submit'>Login</button>
+                                    <button className="btn btn-primary" type='submit'>Login</button>
                                 </div>
                                 <div className="text-red-400">
                                     {error}

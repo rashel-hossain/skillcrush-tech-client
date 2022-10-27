@@ -6,6 +6,7 @@ import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+    console.log(user);
 
     const handleLogOut = () => {
         return logOut()
@@ -27,10 +28,7 @@ const Header = () => {
                             <Link to='/courses' className="justify-between">
                                 Courses
                             </Link>
-                            {/* <ul className="p-2">
-                                <li><Link>Submenu 1</Link></li>
-                                <li><Link>Submenu 2</Link></li>
-                            </ul> */}
+
                         </li>
                         <li><Link to='/faq'>FAQ</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
@@ -79,10 +77,8 @@ const Header = () => {
                             :
                             <>
                                 <div className="navbar">
-
                                     <button className="btn px-4 m-2"> <Link to='/login'>Login</Link></button>
                                 </div>
-
                             </>
                     }
 

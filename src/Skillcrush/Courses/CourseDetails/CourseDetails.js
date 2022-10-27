@@ -39,6 +39,7 @@ const CourseDetails = () => {
                             <Pdf targetRef={ref} filename="code-example.pdf">
                                 {({ toPdf }) => <button className="btn btn-xs bg-primary rounded-full font-semibold px-2" onClick={toPdf}>Generate PDF <FaFilePdf className='rounded bg-red-500 ml-2'></FaFilePdf></button>}
                             </Pdf>
+
                         </div>
                         <h5 className="mb-3 text-3xl font-extrabold leading-none sm:text-4xl">
                             {course.title}

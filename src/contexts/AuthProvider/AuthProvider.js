@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
 
     // update user profile
     const updateUserProfile = (profile) => {
-        return updateProfile(auth.currentUser);
+        return updateProfile(auth.currentUser, profile);
     }
 
     //logOut

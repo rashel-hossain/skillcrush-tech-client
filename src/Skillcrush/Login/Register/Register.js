@@ -59,6 +59,7 @@ const Register = () => {
                 setError();
                 form.reset();
                 handleUpdateUserProfile(name, photoURL);
+                toast.success('Registration Successfully Done!');
             })
             .catch(error => {
                 console.error(error);
@@ -78,10 +79,6 @@ const Register = () => {
     }
 
 
-    // for toast show
-    const toastShow = () => {
-        toast.success('Registration Successfully Done!');
-    }
 
     return (
         <div>
@@ -123,7 +120,7 @@ const Register = () => {
                                 </div>
 
                                 <div className="form-control mt-6">
-                                    <button onClick={toastShow} className="btn btn-primary" type='submit'>Register</button>
+                                    <button className="btn btn-primary" type='submit'>Register</button>
                                 </div>
 
                                 <div className="text-red-400">
@@ -142,7 +139,6 @@ const Register = () => {
                         {
                             user?.uid ?
                                 <button className="mb-2 btn btn-outline btn-primary w-full">Sign Out</button>
-
                                 :
                                 <>
                                     <button onClick={handleGoogleSignIn} className="mb-2 btn btn-outline btn-primary w-full">
