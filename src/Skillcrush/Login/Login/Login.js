@@ -111,7 +111,6 @@ const Login = () => {
                             </div>
                         </div>
                     </form>
-
                     <div className="divider">OR</div>
                     <div>
                         {

@@ -65,7 +65,7 @@ const Header = () => {
                                         {user?.photoURL ?
                                             <img className='rounded-full ml-3'
                                                 style={{ width: '40px' }}
-                                                src={user.photoURL} />
+                                                src={user.photoURL} alt="" />
                                             :
                                             <FaUserCircle className='text-3xl'></FaUserCircle>
                                         }

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Category from '../../Category/Category/Category';
 import SingleCourse from '../SingleCourse/SingleCourse';
 
