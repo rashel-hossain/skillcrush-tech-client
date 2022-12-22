@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ContactPage from '../Shared/ContactPage/ContactPage';
 import CourseDisplayHome from './CourseDisplayHome';
 
 const Home = () => {
@@ -228,6 +229,9 @@ const Home = () => {
                 </div>
             </div>
 
+            <section>
+                <ContactPage></ContactPage>
+            </section>
         </div>
     );
 };
