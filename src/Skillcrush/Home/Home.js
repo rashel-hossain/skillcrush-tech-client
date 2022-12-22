@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import HomeCourses from '../HomeCourses/HomeCourse/HomeCourses';
 import ContactPage from '../Shared/ContactPage/ContactPage';
 import CourseDisplayHome from './CourseDisplayHome';
 
@@ -24,6 +25,11 @@ const Home = () => {
                 </div>
             </div>
 
+            {/* Coreses Categorey with api */}
+            <section>
+                <HomeCourses></HomeCourses>
+            </section>
+            {/* Coreses Categorey with api */}
 
             {/*  demo category start */}
             <div>
@@ -55,7 +61,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div id="slide4" className="carousel-item relative w-full">
-                    <img style={{ height: '350px' }} src="https://www.interviewbit.com/blog/wp-content/uploads/2021/08/dot-net-developer.jpg" className="w-full" />
+                    <img style={{ height: '350px' }} src="https://www.interviewbit.com/blog/wp-content/uploads/2021/08/dot-net-developer.jpg" className="w-full" alt='' />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide3" className="btn btn-circle">❮</a>
                         <a href="#slide1" className="btn btn-circle">❯</a>
@@ -94,7 +100,7 @@ const Home = () => {
                             </svg>
                             <span className="relative">The</span>
                         </span>{' '}
-                        hardwork developer jumps over a lazy dog
+                        hardwork developer jumps over our destination!
                     </h2>
                     <p className="text-base text-gray-700 md:text-lg">
                         Web developer perspiciatis unde omnis iste natus error sit voluptatem

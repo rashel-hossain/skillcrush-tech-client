@@ -25,7 +25,6 @@ const Courses = () => {
 
             <div className="border-2 rounded border-red-500 mx-auto mb-4">
                 <h2 className='text-2xl p-2'> Available Courses: {course.length}</h2>
-
                 <div className='text-1xl mx-auto '>
                     {
                         course.map(ch => <Category

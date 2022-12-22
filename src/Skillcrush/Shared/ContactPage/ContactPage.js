@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactPage = () => {
     return (
-        <div>
+        <div className='mb-16'>
             <div className="relative">
                 <img
                     src="https://images.pexels.com/photos/3747463/pexels-photo-3747463.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
