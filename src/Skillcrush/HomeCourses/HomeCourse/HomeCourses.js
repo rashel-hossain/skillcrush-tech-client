@@ -5,7 +5,7 @@ const HomeCourses = () => {
     const [course, setCourse] = useState([]);
     // console.log(course);
     useEffect(() => {
-        fetch('http://localhost:5000/courses/')
+        fetch('https://skillcrush-tech-server.vercel.app/courses/')
             .then(res => res.json())
             .then(data => setCourse(data));
     }, [])

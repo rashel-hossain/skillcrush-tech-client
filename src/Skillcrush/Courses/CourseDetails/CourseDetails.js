@@ -20,7 +20,7 @@ const CourseDetails = () => {
                         <img
                             src={course.image}
                             className="object-cover w-full lg:absolute h-80 lg:h-full"
-                        />
+                            alt='' />
                         <svg
                             className="absolute top-0 right-0 hidden h-full text-white lg:inline-block"
                             viewBox="0 0 20 104"
