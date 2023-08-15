@@ -2,17 +2,17 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import About from "../Skillcrush/About/About";
 import Blog from "../Skillcrush/Blog/Blog";
-import Category from "../Skillcrush/Category/Category/Category";
 import CourseDetails from "../Skillcrush/Courses/CourseDetails/CourseDetails";
 import Courses from "../Skillcrush/Courses/Courses/Courses";
 import SingleCourse from "../Skillcrush/Courses/SingleCourse/SingleCourse";
 import FAQ from "../Skillcrush/FAQ/FAQ";
 import GetPremium from "../Skillcrush/GetPremium/GetPremium";
-import Home from "../Skillcrush/Home/Home";
+import Home from "../Skillcrush/Home/Home/Home.js";
 import Login from "../Skillcrush/Login/Login/Login";
 import Register from "../Skillcrush/Login/Register/Register";
 import ErrorPage from "../Skillcrush/Shared/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import Category from "../Skillcrush/Category/Category";
 
 export const routes = createBrowserRouter([
     {
@@ -33,7 +33,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courseCategory',
-                element: <Category></Category>,
+                element: <Category />,
                 loader: ({ params }) => fetch(`https://skillcrush-tech-server.vercel.app/courses/${params.id}`)
             },
             {
@@ -67,7 +67,6 @@ export const routes = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://skillcrush-tech-server.vercel.app/courses/${params.id}`)
 
             },
-
             {
                 path: '*',
                 element: <ErrorPage></ErrorPage>

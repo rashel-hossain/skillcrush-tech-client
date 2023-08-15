@@ -8,10 +8,9 @@ const Category = ({ ch }) => {
     return (
         <div>
             <Link id={id} to={`/courseDetails/${id}`}>
-                <p className='flex border-info-2 rounded p-2 bg-red-500 text-white m-2'>
+                <p className='flex border-info-2 rounded p-2 bg-blue-700 hover:bg-blue-500 text-white m-2'>
                     <FaCheckCircle className='items-center mr-2'></FaCheckCircle>{ch.title}
                 </p></Link>
-
         </div>
     );
 };

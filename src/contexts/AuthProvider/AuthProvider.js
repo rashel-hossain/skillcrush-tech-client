@@ -3,13 +3,17 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 import app from '../../firebase/firebase.config';
 
 export const AuthContext = createContext();
-
 const auth = getAuth(app);
-
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    // DarkLightMood
+    const toggleDarkMode = () => {
+        setIsDarkMode(!isDarkMode);
+    };
 
     // googleProvider
     const providerLogin = (provider) => {
@@ -50,13 +54,10 @@ const AuthProvider = ({ children }) => {
             console.log('user inside auth  state change', currentUser);
             setUser(currentUser);
             setLoading(false);
-
         });
-
         return () => {
             unsubscribe();
         }
-
     }, [])
 
     const authInfo = {
@@ -67,9 +68,10 @@ const AuthProvider = ({ children }) => {
         logOut,
         createUser,
         signIn,
-        updateUserProfile
+        updateUserProfile,
+        isDarkMode,
+        toggleDarkMode,
     }
-
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

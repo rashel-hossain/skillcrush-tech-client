@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Category from '../../Category/Category/Category';
 import SingleCourse from '../SingleCourse/SingleCourse';
+import Category from '../../Category/Category';
 
 const Courses = () => {
     const [course, setCourse] = useState([]);
@@ -12,7 +12,6 @@ const Courses = () => {
     }, [])
 
     return (
-
         <div className='grid lg:grid-cols-[3fr_1fr]'>
             <div className="grid lg:grid-cols-2 mx-auto rigthSide-Nav">
                 {
@@ -22,21 +21,17 @@ const Courses = () => {
                     ></SingleCourse>)
                 }
             </div>
-
-            <div className="border-2 rounded border-red-500 mx-auto mb-4">
-                <h2 className='text-2xl p-2'> Available Courses: {course.length}</h2>
-                <div className='text-1xl mx-auto '>
+            <div className=" mx-auto mb-4">
+                <h2 className='text-2xl p-2'>Available Courses: {course.length}</h2>
+                <div className='text-1xl border-2 border-purple-600 rounded'>
                     {
                         course.map(ch => <Category
                             key={ch.id}
                             ch={ch}
                         ></Category>)
-
                     }
                 </div>
             </div>
-
-
         </div >
     );
 };

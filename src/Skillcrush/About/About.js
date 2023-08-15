@@ -2,47 +2,53 @@ import React from 'react';
 
 const About = () => {
     return (
-        <div>
-            <h2>This is About</h2>
-            {/* <div class="mt-10 sm:mt-0">
-                <div class="md:grid md:grid-cols-3 md:gap-6">
-                    <div class="md:col-span-1">
-                        <div class="px-4 sm:px-0">
-                            <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
-                            <p class="mt-1 text-sm text-gray-600">Use a permanent address where you can receive mail.</p>
+        <>
+            <div className='mb-32'>
+                <div className="hero h-96" style={{ backgroundImage: 'url(https://cdn.acodez.in/wp-content/uploads/2022/10/Banner-image-45.jpg)' }}>
+                    <div className="hero-overlay bg-opacity-60"></div>
+                    <div className="hero-content text-center text-neutral-content">
+                        <div className="max-w-md">
+                            <h1 className="mb-5 text-5xl font-bold">About Us</h1>
+
                         </div>
                     </div>
-                    <div class="mt-5 md:col-span-2 md:mt-0">
-                        <form action="#" method="POST">
-                            <div class="overflow-hidden shadow sm:rounded-md">
-                                <div class="bg-white px-4 py-5 sm:p-6">
-                                    <div class="grid grid-cols-6 gap-6">
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                                            <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
-                                        </div>
-
-
-
-                                        <div class="col-span-6 sm:col-span-4">
-                                            <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                                            <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                                    <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
-                                </div>
-                            </div>
-                        </form>
+                </div>
+                <div className="hero mt-16">
+                    <div className="hero-content w-2/3 flex-col lg:flex-row-reverse">
+                        <img src="https://appsmaventech.com/images/blog/The-Evolution-Of-Web-Development-Via-Machine-Learning.jpg" className="max-w-sm rounded-lg shadow-2xl" alt='' />
+                        <div>
+                            <h1 className="text-5xl font-bold">Our Mission</h1>
+                            <p className="py-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur odit est consectetur neque saepe nisi reiciendis, beatae iste optio amet exercitationem similique officia laboriosam dolorem delectus molestiae, obcaecati voluptatem eos quas at esse rem tempora autem! Fugit labore incidunt facilis fuga ducimus. Perferendis blanditiis architecto id iste tempore mollitia fugiat?</p>
+                        </div>
                     </div>
                 </div>
-            </div> 
-            */}
-
-        </div >
+                <div className="relative mt-16">
+                    <div className="relative bg-opacity-75">
+                        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+                            <div className="flex flex-col items-center justify-between xl:flex-row">
+                                <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
+                                    <h2 className="max-w-lg mb-10 font-sans text-2xl font-medium tracking-tight text-slate-700 sm:text-4xl sm:leading-none uppercase">
+                                        Find Us<br className="hidden md:block uppercase" />
+                                        For Teachers Professional Web Services
+                                        <span className="text-teal-accent-400 uppercase">We Provide Our Best Sevices</span>
+                                    </h2>
+                                    <div className='text-black'>
+                                        <p><i class="fa-solid fa-location-dot pr-2 pb-4"></i>Dhaka, Bangladesh, 1216</p>
+                                        <p><i class="fa-solid fa-phone-volume pr-2 pb-4"></i>+88 01166999555</p>
+                                        <p><i class="fa-solid fa-envelope"></i>skillcrush23@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
+                                    <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=Banglamotor+(SkillCrush)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                                        <a href="https://www.maps.ie/population/">Calculate population in area</a>
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
     );
 };
 

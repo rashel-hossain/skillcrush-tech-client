@@ -2,21 +2,17 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
-
-
+import './header.css'
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext);
-    console.log(user);
+    const { user, logOut, isDarkMode, toggleDarkMode } = useContext(AuthContext);
 
     const handleLogOut = () => {
         return logOut()
             .then(() => { })
             .catch(error => console.error(error));
     }
-
-
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -28,16 +24,13 @@ const Header = () => {
                             <Link to='/courses' className="justify-between">
                                 Courses
                             </Link>
-
                         </li>
                         <li><Link to='/faq'>FAQ</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
                         <li><Link to='/about'>About</Link></li>
                     </ul>
                 </div>
-
                 <Link to='/' className="btn btn-ghost normal-case text-xl"> <img style={{ height: '50px' }} src="/skillcrush.PNG" alt="" /></Link>
-
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -47,11 +40,19 @@ const Header = () => {
                             Courses
                         </Link>
                     </li>
-
                     <li><Link to='/faq'>FAQ</Link></li>
                     <li><Link to='/blog'>Blog</Link></li>
                     <li><Link to='/about'>About</Link></li>
-                    <li><button><input type="checkbox" className="toggle" /></button></li>
+                    {/* <li><button ><input type="checkbox" className="toggle" /></button></li> */}
+                    <li className={`${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+                        <button onClick={toggleDarkMode}>
+                            <input
+                                type="checkbox"
+                                className="toggle"
+                                checked={isDarkMode}
+                            />
+                        </button>
+                    </li>
                 </ul>
             </div>
             <div className="navbar-end px-2">
@@ -71,22 +72,16 @@ const Header = () => {
                                         }
                                     </Link>
                                 </div>
-
                                 <button onClick={handleLogOut} className="btn px-4 m-2">Log Out</button>
                             </>
                             :
                             <>
                                 <div className="navbar">
-                                    <button className="btn px-4 m-2"> <Link to='/login'>Login</Link></button>
+                                    <button className="btn px-4 m-2 bg-purple-500"> <Link to='/login'>Login</Link></button>
                                 </div>
                             </>
                     }
-
                 </Link>
-
-
-
-                {/* <Link to='/login' className="btn px-4 m-2">Login</Link> */}
             </div>
         </div>
     );

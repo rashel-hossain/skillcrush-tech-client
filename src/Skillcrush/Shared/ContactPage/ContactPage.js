@@ -37,15 +37,15 @@ const ContactPage = () => {
                                 </a>
                             </div>
                             <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
-                                <div className="bg-white rounded shadow-2xl p-7 sm:p-10">
-                                    <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
-                                        Contact For Course Info
+                                <div className="rounded shadow-2xl p-7 sm:p-10 bg-white text-black">
+                                    <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl uppercase">
+                                        Contact Us
                                     </h3>
                                     <form>
                                         <div className="mb-1 sm:mb-2">
                                             <label
                                                 htmlFor="firstName"
-                                                className="inline-block mb-1 font-medium"
+                                                className="text-start inline-block mb-1 font-medium"
                                             >
                                                 Full Name
                                             </label>
@@ -93,7 +93,7 @@ const ContactPage = () => {
                                                 type="submit"
                                                 className="inline-flex items-center justify-center w-full h-12 px-6 font-medium bg-red-500 text-white font-medium"
                                             >
-                                                Subscribe
+                                                Send Message
                                             </button>
                                         </div>
                                         <p className="text-xs text-gray-600 sm:text-sm">
@@ -107,7 +107,6 @@ const ContactPage = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };
